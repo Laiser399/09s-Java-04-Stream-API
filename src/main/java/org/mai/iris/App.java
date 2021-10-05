@@ -17,8 +17,8 @@ public class App {
         IrisDataSetHelper helper = new IrisDataSetHelper(irisList);
 
         //get average sepal width
-        Double avgSetalLength = null;
-        System.out.println(avgSetalLength);
+        Double avgSepalLength = null;
+        System.out.println(avgSepalLength);
 
         //get average petal square - petal width multiplied on petal length
         Double avgPetalLength = null;

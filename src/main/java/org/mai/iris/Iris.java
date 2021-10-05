@@ -76,11 +76,7 @@ public class Iris {
         if(patelSquare < 2.0) {
             return Petal.SMALL;
         } else if(patelSquare < 5.0) {
-            return Petal.MEDUIM;
+            return Petal.MEDIUM;
         } else return Petal.LARGE;
     }
-}
-
-enum Petal {
-    SMALL, MEDUIM, LARGE,
 }
