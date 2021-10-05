@@ -5,19 +5,19 @@ package org.mai.iris;
  */
 public class Iris {
     //длина чашелистника
-    private double sepalLength;
+    private final double sepalLength;
 
     //ширина чашелистника
-    private double sepalWidth;
+    private final double sepalWidth;
 
     //длина лепестка
-    private double petalLength;
+    private final double petalLength;
 
     //ширина лепестка
-    private double petalWidth;
+    private final double petalWidth;
 
     //вид
-    private String species;
+    private final String species;
 
     public Iris(double sepalLength, double sepalWidth, double petalLength, double petalWidth, String species) {
         this.sepalLength = sepalLength;
@@ -49,15 +49,13 @@ public class Iris {
 
     static Iris parse(String line) {
         String[] parts = line.split(",");
-        Iris result = new Iris(
+        return new Iris(
                 Double.parseDouble(parts[0]),
                 Double.parseDouble(parts[1]),
                 Double.parseDouble(parts[2]),
                 Double.parseDouble(parts[3]),
                 parts[4]
         );
-
-        return result;
     }
 
     @Override
@@ -71,12 +69,14 @@ public class Iris {
                 '}';
     }
 
-    public Petal classifyByPatel(Iris iris) {
-        double patelSquare = iris.getPetalLength()*iris.getPetalLength();
-        if(patelSquare < 2.0) {
-            return Petal.SMALL;
-        } else if(patelSquare < 5.0) {
-            return Petal.MEDIUM;
-        } else return Petal.LARGE;
+    public static PetalSize classifyByPetalSize(Iris iris) {
+        double petalSquare = iris.getPetalLength() * iris.getPetalWidth();
+        if (petalSquare < 2.0) {
+            return PetalSize.SMALL;
+        }
+        if (petalSquare < 5.0) {
+            return PetalSize.MEDIUM;
+        }
+        return PetalSize.LARGE;
     }
 }

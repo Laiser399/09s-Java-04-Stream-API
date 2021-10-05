@@ -1,5 +1,5 @@
 package org.mai.iris;
 
-enum Petal {
+enum PetalSize {
     SMALL, MEDIUM, LARGE,
 }
